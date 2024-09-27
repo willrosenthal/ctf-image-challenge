@@ -1,36 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGludDogQ2hlY2sgdGhlIGNvbW1lbnQgZmllbGQgaW4gdGhlIGltYWdlIG1ldGFkYXRh</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            text-align: center;
-        }
-        img {
-            max-width: 80%;
-            height: auto;
-        }
-        .caption {
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #555;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL Injection Challenge</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img src="SGludDogQ2hlY2sgdGhlIGNvbW1lbnQgZmllbGQgaW4gdGhlIGltYWdlIG1ldGFkYXRh.png" alt="base64...?">
-        <div class="caption">"Base64!?!?!?!"</div>
-    </div>
+  <h2>Cornell Cybersecurity Club: SQL Injection Challenge</h2>
+  <p>Welcome to the SQL Injection Challenge. Can you bypass the login and get the flag?</p>
+  
+  <button onclick="fakeLogin()">Try to Login</button>
+  
+  <div id="result"></div>
+
+  <script>
+    function fakeLogin() {
+      // Simulate a login prompt for username and password
+      var username = prompt("Enter username:");
+      var password = prompt("Enter password:");
+
+      // Simulated vulnerable SQL query
+      var query = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
+
+      // Check for SQL injection attempt
+      if (username.includes("'") || password.includes("'")) {
+        // Injection "success" path
+        document.getElementById("result").innerHTML = "<p>Access granted! Here's your flag: <strong>flag{sql_injection_master}</strong></p>";
+      } else {
+        // Regular login path
+        if (username === "admin" && password === "password123") {
+          document.getElementById("result").innerHTML = "<p>Login successful, but no flag for you.</p>";
+        } else {
+          document.getElementById("result").innerHTML = "<p>Login failed. Try again.</p>";
+        }
+      }
+    }
+  </script>
 </body>
 </html>
