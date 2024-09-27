@@ -66,6 +66,7 @@
         // Reveal the obfuscated flag
         document.getElementById("result").innerHTML = "<p>Access granted! Here's your flag: <strong>" + getFlag() + "</strong></p>";
       } else {
+        // Hardcoded valid credentials (to make it seem real)
         if (username === "admin" && password === "password123") {
           document.getElementById("result").innerHTML = "<p>Login successful, but no flag for you!</p>";
         } else {
