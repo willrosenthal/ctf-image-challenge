@@ -47,7 +47,7 @@
   <script>
     // Obfuscated flag
     function getFlag() {
-      var _0xbc3cc2=_0x5d19;(function(_0x2b4fae,_0x372d55){var _0x3ce342=_0x5d19,_0x56930e=_0x2b4fae();while(!![]){try{var _0x4f0720=parseInt(_0x3ce342(0x1cf))/0x1*(-parseInt(_0x3ce342(0x1d5))/0x2)+-parseInt(_0x3ce342(0x1d7))/0x3*(-parseInt(_0x3ce342(0x1cb))/0x4)+-parseInt(_0x3ce342(0x1cc))/0x5*(parseInt(_0x3ce342(0x1cd))/0x6)+parseInt(_0x3ce342(0x1d1))/0x7*(-parseInt(_0x3ce342(0x1d8))/0x8)+parseInt(_0x3ce342(0x1d2))/0x9*(-parseInt(_0x3ce342(0x1ce))/0xa)+-parseInt(_0x3ce342(0x1d6))/0xb*(parseInt(_0x3ce342(0x1d3))/0xc)+parseInt(_0x3ce342(0x1ca))/0xd*(parseInt(_0x3ce342(0x1d0))/0xe);if(_0x4f0720===_0x372d55)break;else _0x56930e['push'](_0x56930e['shift']());}catch(_0x1c363d){_0x56930e['push'](_0x56930e['shift']());}}}(_0x3163,0x65596));var obfuscatedFlag=_0xbc3cc2(0x1d4);function _0x5d19(_0x4cc09f,_0x34ebe5){var _0x316360=_0x3163();return _0x5d19=function(_0x5d19b5,_0x4e98d5){_0x5d19b5=_0x5d19b5-0x1ca;var _0x5201da=_0x316360[_0x5d19b5];return _0x5201da;},_0x5d19(_0x4cc09f,_0x34ebe5);}return atob(obfuscatedFlag);function _0x3163(){var _0x2ce33c=['143068DAGoGf','15NNCEQw','88938bEprVF','920XYPDwu','12mbmuCK','3571638FkXOIM','6958JVLcHQ','61848unbYME','48LilYjW','ZmxhZ3t5b3VfdW5jb3ZlcmVkX3RoZV9pbmplY3Rpb259','107018hEUkuX','461351tfyvaj','15fqkMvT','2560bkYQjw','104MzVjcW'];_0x3163=function(){return _0x2ce33c;};return _0x3163();}
+      var _0x2e685b=_0x28d8;function _0x28d8(_0x2c5a10,_0x6a5ef1){var _0xf83cd3=_0xf83c();return _0x28d8=function(_0x28d831,_0x1ff4da){_0x28d831=_0x28d831-0xa3;var _0x192501=_0xf83cd3[_0x28d831];return _0x192501;},_0x28d8(_0x2c5a10,_0x6a5ef1);}function _0xf83c(){var _0x248c84=['14bgNIHv','996QLwiWO','14WtYwSf','ZmxhZ3t5b3VfdW5jb3ZlcmVkX3RoZV9pbmplY3Rpb259','668SacXSr','606200LVbPJH','582666gAurhg','1303990VKKevq','9qKclYy','7378VtIywz','856736yHROPA','1929mAXGZC','66484LpifFj'];_0xf83c=function(){return _0x248c84;};return _0xf83c();}(function(_0xe4d5b9,_0x333507){var _0x213680=_0x28d8,_0x8e8464=_0xe4d5b9();while(!![]){try{var _0x159b54=-parseInt(_0x213680(0xab))/0x1*(-parseInt(_0x213680(0xa4))/0x2)+parseInt(_0x213680(0xad))/0x3*(-parseInt(_0x213680(0xa6))/0x4)+-parseInt(_0x213680(0xa7))/0x5+-parseInt(_0x213680(0xa8))/0x6*(parseInt(_0x213680(0xaf))/0x7)+parseInt(_0x213680(0xac))/0x8+-parseInt(_0x213680(0xaa))/0x9*(parseInt(_0x213680(0xa9))/0xa)+-parseInt(_0x213680(0xae))/0xb*(-parseInt(_0x213680(0xa3))/0xc);if(_0x159b54===_0x333507)break;else _0x8e8464['push'](_0x8e8464['shift']());}catch(_0x404831){_0x8e8464['push'](_0x8e8464['shift']());}}}(_0xf83c,0x1a28c));var obfuscatedFlag=_0x2e685b(0xa5);return atob(obfuscatedFlag);
     }
 
     function processLogin() {
@@ -58,15 +58,14 @@
       // Simulated SQL query (vulnerable to injection)
       var query = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
 
-      // Check for typical SQL injection patterns, not just a single apostrophe
-      var sqlInjectionPattern = /('|--|\bOR\b|\bAND\b)/i;
+      // Check for more complex SQL injection patterns (require OR, AND, or 1=1 logic)
+      var sqlInjectionPattern = /('|--|\b(OR|AND)\b\s+1\s*=\s*1)/i;
 
-      // If the user input contains typical SQL injection patterns
+      // If the user input contains a valid SQL injection pattern
       if (sqlInjectionPattern.test(username) || sqlInjectionPattern.test(password)) {
         // Reveal the obfuscated flag
         document.getElementById("result").innerHTML = "<p>Access granted! Here's your flag: <strong>" + getFlag() + "</strong></p>";
       } else {
-        // Hardcoded valid credentials (to make it seem real)
         if (username === "admin" && password === "password123") {
           document.getElementById("result").innerHTML = "<p>Login successful, but no flag for you!</p>";
         } else {
