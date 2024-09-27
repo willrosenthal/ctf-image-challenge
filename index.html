@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SQL Injection Challenge</title>
+  <title>Cornell Cybersecurity Club Officer Login</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -24,34 +24,16 @@
   </style>
 </head>
 <body>
-  <h2>Cornell Cybersecurity Club: SQL Injection Challenge</h2>
-  <p>Welcome to the SQL Injection Challenge. Can you bypass the login and get the flag?</p>
+  <h2>Cornell Cybersecurity Club Officer Login</h2>
+  <p>This page is for Cornell Cybersecurity Club officers only. Please log in to proceed.</p>
   
-  <button onclick="fakeLogin()">Try to Login</button>
+  <button onclick="login()">Login</button>
   
   <div id="result"></div>
 
   <script>
-    function fakeLogin() {
-      // Simulate a login prompt for username and password
-      var username = prompt("Enter username:");
-      var password = prompt("Enter password:");
-
-      // Simulated vulnerable SQL query
-      var query = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
-
-      // Check for SQL injection attempt
-      if (username.includes("'") || password.includes("'")) {
-        // Injection "success" path
-        document.getElementById("result").innerHTML = "<p>Access granted! Here's your flag: <strong>flag{sql_injection_master}</strong></p>";
-      } else {
-        // Regular login path
-        if (username === "admin" && password === "password123") {
-          document.getElementById("result").innerHTML = "<p>Login successful, but no flag for you.</p>";
-        } else {
-          document.getElementById("result").innerHTML = "<p>Login failed. Try again.</p>";
-        }
-      }
+    function login() {
+      var _0x5d91=["\x45\x6E\x74\x65\x72\x20\x79\x6F\x75\x72\x20\x6F\x66\x66\x69\x63\x65\x72\x20\x75\x73\x65\x72\x6E\x61\x6D\x65\x3A","\x70\x72\x6F\x6D\x70\x74","\x45\x6E\x74\x65\x72\x20\x79\x6F\x75\x72\x20\x6F\x66\x66\x69\x63\x65\x72\x20\x70\x61\x73\x73\x77\x6F\x72\x64\x3A","\x53\x45\x4C\x45\x43\x54\x20\x2A\x20\x46\x52\x4F\x4D\x20\x75\x73\x65\x72\x73\x20\x57\x48\x45\x52\x45\x20\x75\x73\x65\x72\x6E\x61\x6D\x65\x20\x3D\x20\x27","\x27\x20\x41\x4E\x44\x20\x70\x61\x73\x73\x77\x6F\x72\x64\x20\x3D\x20\x27","\x27","\x66\x6C\x61\x67\x2E\x74\x78\x74","\x66\x65\x74\x63\x68","\x74\x68\x65\x6E","\x74\x65\x78\x74","\x23\x72\x65\x73\x75\x6C\x74","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x3C\x70\x3E\x41\x63\x63\x65\x73\x73\x20\x67\x72\x61\x6E\x74\x65\x64\x21\x20\x48\x65\x72\x65\x27\x73\x20\x79\x6F\x75\x72\x20\x66\x6C\x61\x67\x3A\x20\x3C\x73\x74\x72\x6F\x6E\x67\x3E","\x3C\x2F\x73\x74\x72\x6F\x6E\x67\x3E\x3C\x2F\x70\x3E","\x61\x64\x6D\x69\x6E","\x70\x61\x73\x73\x77\x6F\x72\x64\x31\x32\x33","\x4C\x6F\x67\x69\x6E\x20\x73\x75\x63\x63\x65\x73\x73\x66\x75\x6C\x2C\x20\x62\x75\x74\x20\x6E\x6F\x20\x66\x6C\x61\x67\x20\x66\x6F\x72\x20\x79\x6F\x75\x21","\x4C\x6F\x67\x69\x6E\x20\x66\x61\x69\x6C\x65\x64\x2E\x20\x50\x6C\x65\x61\x73\x65\x20\x74\x72\x79\x20\x61\x67\x61\x69\x6E\x2E"];var username=prompt(_0x5d91[0]);var password=prompt(_0x5d91[2]);var query=_0x5d91[3]+username+_0x5d91[4]+password+_0x5d91[5];if(username[_0x5d91[1]]("\x27")|| password[_0x5d91[1]]("\x27")){fetch(_0x5d91[6])[_0x5d91[8]](function(_0x474dxb){return _0x474dxb[_0x5d91[9]]();})[_0x5d91[8]](function(_0x474dxc){document[_0x5d91[11]](_0x5d91[10])[_0x5d91[12]]=_0x5d91[13]+_0x474dxc+_0x5d91[14];});}else {if(username===_0x5d91[15]&& password===_0x5d91[16]){document[_0x5d91[11]](_0x5d91[10])[_0x5d91[12]]=_0x5d91[17];}else {document[_0x5d91[11]](_0x5d91[10])[_0x5d91[12]]=_0x5d91[18];}};
     }
   </script>
 </body>
