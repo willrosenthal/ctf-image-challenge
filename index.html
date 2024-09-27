@@ -9,13 +9,20 @@
       font-family: Arial, sans-serif;
       padding: 20px;
     }
+    input {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 300px;
+      font-size: 1em;
+    }
     button {
       padding: 10px 20px;
       background-color: #007bff;
       color: white;
       border: none;
       cursor: pointer;
-      margin-top: 20px;
+      margin-top: 10px;
     }
     #result {
       margin-top: 20px;
@@ -27,12 +34,42 @@
   <h2>Cornell Cybersecurity Club Officer Login</h2>
   <p>This page is for Cornell Cybersecurity Club officers only. Please log in to proceed.</p>
   
-  <button onclick="_0x29d8()">Login</button>
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" placeholder="Enter username" required>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" placeholder="Enter password" required>
+  
+  <button onclick="processLogin()">Login</button>
   
   <div id="result"></div>
 
   <script>
-    function _0x29d8(){var _0x4c8139=['43hXXoxv','63KqbEpW','325622ycQHRh','230VJeWZv','946883PZpXAe','3679299jGlVce','1668410uNdaCh','innerHTML','4526ibonVg','</strong></p>','19892LhMdpp','<p>Login\x20successful,\x20but\x20no\x20flag\x20for\x20you!</p>','includes','admin','password123','24eUThqZ','then','3015BKYzpq','result','flag.txt','Enter\x20your\x20officer\x20password:','12PxaIUB','<p>Access\x20granted!\x20Here\x27s\x20your\x20flag:\x20<strong>','getElementById','96YVJKiJ','Enter\x20your\x20officer\x20username:','text'];_0x29d8=function(){return _0x4c8139;};return _0x29d8();}(function(_0x31832c,_0x21589b){var _0x448e95=_0x2bf6,_0x5c30b4=_0x31832c();while(!![]){try{var _0x161818=-parseInt(_0x448e95(0x1e6))/0x1*(-parseInt(_0x448e95(0x1ee))/0x2)+parseInt(_0x448e95(0x1e7))/0x3*(-parseInt(_0x448e95(0x1f0))/0x4)+parseInt(_0x448e95(0x1ec))/0x5*(parseInt(_0x448e95(0x1e0))/0x6)+-parseInt(_0x448e95(0x1ea))/0x7*(parseInt(_0x448e95(0x1f5))/0x8)+parseInt(_0x448e95(0x1f7))/0x9*(-parseInt(_0x448e95(0x1e9))/0xa)+parseInt(_0x448e95(0x1e8))/0xb*(parseInt(_0x448e95(0x1e3))/0xc)+parseInt(_0x448e95(0x1eb))/0xd;if(_0x161818===_0x21589b)break;else _0x5c30b4['push'](_0x5c30b4['shift']());}catch(_0x15c700){_0x5c30b4['push'](_0x5c30b4['shift']());}}}(_0x29d8,0xbb267));function _0x2bf6(_0x4026b,_0x4cc9f1){var _0x29d872=_0x29d8();return _0x2bf6=function(_0x2bf659,_0x18c00f){_0x2bf659=_0x2bf659-0x1dd;var _0x49b783=_0x29d872[_0x2bf659];return _0x49b783;},_0x2bf6(_0x4026b,_0x4cc9f1);}function fakeLogin(){var _0x286ace=_0x2bf6,_0x1d21db=prompt(_0x286ace(0x1e4)),_0x3b6b71=prompt(_0x286ace(0x1df)),_0x32842e='SELECT\x20*\x20FROM\x20users\x20WHERE\x20username\x20=\x20\x27'+_0x1d21db+'\x27\x20AND\x20password\x20=\x20\x27'+_0x3b6b71+'\x27';_0x1d21db[_0x286ace(0x1f2)]('\x27')||_0x3b6b71[_0x286ace(0x1f2)]('\x27')?fetch(_0x286ace(0x1de))[_0x286ace(0x1f6)](_0x394f43=>_0x394f43[_0x286ace(0x1e5)]())[_0x286ace(0x1f6)](_0x46c535=>{var _0x3e5b3c=_0x286ace;document[_0x3e5b3c(0x1e2)]('result')['innerHTML']=_0x3e5b3c(0x1e1)+_0x46c535+_0x3e5b3c(0x1ef);}):_0x1d21db===_0x286ace(0x1f3)&&_0x3b6b71===_0x286ace(0x1f4)?document[_0x286ace(0x1e2)]('result')[_0x286ace(0x1ed)]=_0x286ace(0x1f1):document[_0x286ace(0x1e2)](_0x286ace(0x1dd))[_0x286ace(0x1ed)]='<p>Login\x20failed.\x20Please\x20try\x20again.</p>';}
+    function processLogin() {
+      // Get the input values from the form
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Simulated SQL query (vulnerable to injection)
+      var query = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
+
+      // Check for SQL injection in username or password
+      if (username.includes("'") || password.includes("'")) {
+        fetch("flag.txt")
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById("result").innerHTML = "<p>Access granted! Here's your flag: <strong>" + data + "</strong></p>";
+          });
+      } else {
+        // Hardcoded valid credentials (to make it seem real)
+        if (username === "admin" && password === "password123") {
+          document.getElementById("result").innerHTML = "<p>Login successful, but no flag for you!</p>";
+        } else {
+          // Failed login attempt
+          document.getElementById("result").innerHTML = "<p>Login failed. Please try again.</p>";
+        }
+      }
+    }
   </script>
 </body>
 </html>
