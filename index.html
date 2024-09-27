@@ -45,6 +45,11 @@
   <div id="result"></div>
 
   <script>
+    // Obfuscated flag
+    function getFlag() {
+      var _0x2ed6dd=_0x4471;(function(_0x3dda94,_0x2743de){var _0x261f64=_0x4471,_0x1cd56e=_0x3dda94();while(!![]){try{var _0x2dd6df=-parseInt(_0x261f64(0x9b))/0x1+-parseInt(_0x261f64(0x9e))/0x2+-parseInt(_0x261f64(0x9a))/0x3+parseInt(_0x261f64(0x98))/0x4+-parseInt(_0x261f64(0xa0))/0x5*(parseInt(_0x261f64(0x99))/0x6)+parseInt(_0x261f64(0x9f))/0x7+parseInt(_0x261f64(0x9c))/0x8;if(_0x2dd6df===_0x2743de)break;else _0x1cd56e['push'](_0x1cd56e['shift']());}catch(_0x1674bb){_0x1cd56e['push'](_0x1cd56e['shift']());}}}(_0x59b7,0x7a622));function _0x4471(_0x5b42b9,_0x14efa0){var _0x59b710=_0x59b7();return _0x4471=function(_0x4471a0,_0x14bce0){_0x4471a0=_0x4471a0-0x98;var _0xf85421=_0x59b710[_0x4471a0];return _0xf85421;},_0x4471(_0x5b42b9,_0x14efa0);}var obfuscatedFlag=_0x2ed6dd(0x9d);function _0x59b7(){var _0x14a805=['832808ZytHSI','546455yZHpmc','90005hkyWfP','1218792MGewPZ','186oLzpYI','458514iiIIaS','319377uZoSFV','12521352nXJRrE','ZmxhZ3t5b3VfdW5jb3ZlcmVkX3RoZV9pbmplY3Rpb259'];_0x59b7=function(){return _0x14a805;};return _0x59b7();}return atob(obfuscatedFlag);
+    }
+
     function processLogin() {
       // Get the input values from the form
       var username = document.getElementById('username').value;
@@ -55,11 +60,8 @@
 
       // Check for SQL injection in username or password
       if (username.includes("'") || password.includes("'")) {
-        fetch("flag.txt")
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById("result").innerHTML = "<p>Access granted! Here's your flag: <strong>" + data + "</strong></p>";
-          });
+        // Reveal the obfuscated flag
+        document.getElementById("result").innerHTML = "<p>Access granted! Here's your flag: <strong>" + getFlag() + "</strong></p>";
       } else {
         // Hardcoded valid credentials (to make it seem real)
         if (username === "admin" && password === "password123") {
